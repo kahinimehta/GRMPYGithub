@@ -55,7 +55,7 @@ Kahini Mehta
 [https://github.com/kahinimehta/GRMPYGithub](https://github.com/kahinimehta/GRMPYGithub)
 * GitHub Link to final CuBIDS csvs: 
 * Describe the Curation Process. Include a list of the initial and final validation errors and warnings.
-Began with Flywheel and fw-heudiconv for curating into BIDS format & deleted duplicate NIFTIs + removed unnecessary BIDS data for attachments. 
+Began with Flywheel and fw-heudiconv for curating into BIDS format & deleted duplicate NIFTIs + removed unnecessary BIDS data for attachments. Checked into Datalad after removing PHI.
 * Describe additions, deletions, and metadata changes (if any).
 Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](https://pennlinc.github.io/docs/TheWay/CuratingBIDSonDisk/). Metadata fields removed include patient sex and weight.
 ### Preprocessing Pipelines 
