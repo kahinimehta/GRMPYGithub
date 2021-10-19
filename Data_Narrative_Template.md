@@ -57,7 +57,7 @@ Kahini Mehta
 * Describe the Curation Process. Include a list of the initial and final validation errors and warnings.
 Began with Flywheel and fw-heudiconv for curating into BIDS format & deleted duplicate NIFTIs + removed unnecessary BIDS data for attachments. 
 * Describe additions, deletions, and metadata changes (if any).
-Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](https://pennlinc.github.io/docs/TheWay/CuratingBIDSonDisk/)
+Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](https://pennlinc.github.io/docs/TheWay/CuratingBIDSonDisk/). Metadata fields removed include patient sex and weight.
 ### Preprocessing Pipelines 
 * For each pipeline (e.g. QSIPrep, fMRIPrep, XCP, C-PAC), please fill out the following information:
    * Pipeline Name: fMRIPrep
