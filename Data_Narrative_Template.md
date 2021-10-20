@@ -96,3 +96,7 @@ Upon [first](https://github.com/kahinimehta/GRMPYGithub/blob/main/GRMPY-validati
 
 [ERROR CODE1 + Naming Issue]: 314
 [ERROR CODE55 + JSON file incorrectly formatted]: 1
+
+Attempts to resolve: 
+1. Removed all the files that shouldn't be in the directory from running cubids-group
+2. Manually added "Name" back to dataset_description.json
