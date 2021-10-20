@@ -2,7 +2,7 @@
 
 ### Important Links (should all be on GitHub):
 * Data Processing Flow Diagram:
-Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS
+Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad
 
 
 * DSR GitHub Project Page(Curation/Validation and Processing Queue Status):
@@ -17,7 +17,7 @@ Analysis of GRMPY data.
 [GRMPY](https://pennlinc.github.io/grmpyproject/)
 * What is our goal data format?
    * i.e. in what form do we want the data by the end of the "Curation" step? BIDS? Something else? 
-   In BIDS format, then fMRI processed
+   In BIDS format, then fMRIPrep processed
 
 
 ### Data Acquisition
@@ -39,25 +39,25 @@ Kahini Mehta
 * From where was the data downloaded?
 Flywheel
 * Where is it currently being stored?
-Flywheel, CUBIC
+Flywheel, CUBIC, Datalad
 * What form is the data in upon intial download (DICOMS, NIFTIS, something else?)
 NIFTIs- BIDS format from Flywheel
 * Are you using Datalad? If so, at which point did you check the data into datalad?
-Yes. Not yet. 
+Yes. After adding metadata and removing sensitive fields. 
 * Is the data backed up in a second location? If so, please provide the path to the backup location:
-CUBIC: /cbica/projects/GRMPY/dropbox/backup
+CUBIC: /cbica/projects/GRMPY/backup
 
 ### Curation Process
 
 * Who is responsible for curating this data?
 Kahini Mehta
-* GitHub Link to curation scripts/heurstics: 
+* GitHub Link to curation scripts/heuristics: 
 [https://github.com/kahinimehta/GRMPYGithub](https://github.com/kahinimehta/GRMPYGithub)
 * GitHub Link to final CuBIDS csvs: 
 * Describe the Curation Process. Include a list of the initial and final validation errors and warnings.
 Began with Flywheel and fw-heudiconv for curating into BIDS format & deleted duplicate NIFTIs + removed unnecessary BIDS data for attachments. Checked into Datalad after removing PHI.
 * Describe additions, deletions, and metadata changes (if any).
-Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](https://pennlinc.github.io/docs/TheWay/CuratingBIDSonDisk/). Metadata fields removed include patient sex and weight.
+Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](https://pennlinc.github.io/docs/TheWay/CuratingBIDSonDisk/). Metadata fields removed include patient sex,name, acquisition datetime & weight.
 ### Preprocessing Pipelines 
 * For each pipeline (e.g. QSIPrep, fMRIPrep, XCP, C-PAC), please fill out the following information:
    * Pipeline Name: fMRIPrep
