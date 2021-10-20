@@ -87,3 +87,12 @@ Kahini Mehta, GRMPY project
    * GitHub Link(s) to result(s)
    * Did you use pennlinckit?  
       * https://github.com/ennLINC/PennLINC-Kit/tree/main/pennlinckit  
+
+
+
+# BIDS Validation
+
+Upon [first](https://github.com/kahinimehta/GRMPYGithub/blob/main/GRMPY-validation.csv) run of the validator, we found 315 errors:
+
+[ERROR CODE1 + Naming Issue]: 314
+[ERROR CODE55 + JSON file incorrectly formatted]: 1
