@@ -101,12 +101,8 @@ Attempts to resolve:
 1. Removed all the files that shouldn't be in the directory from running cubids-group
 2. Manually added "Name" back to dataset_description.json
 
-Upon [second](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation2/GRMPY-validation.csv) run of the validator, we found  errors:
+Upon [second](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation2/GRMPY-validation.csv) run of the validator, we found 311 errors:
 
-[ERROR CODE1 + Naming Issue]: 
-[ERROR CODE55 + JSON file incorrectly formatted]: 
-
-We were satisfied with curation in/on [APPROX LAST DATE OF CURATION]. The
-last BIDS validator output is available [GITHUB URL TO VALIDATOR OUTPUT AT
-DATE OF COMMIT], after which data was checked into datalad and backed up to
-[CLUSTER/DIRECTORY]. The datalad commit was [SHASUM of datalad commit].
+[ERROR CODE1 + Naming Issue]: 311
+However, these errors are due to ASL files which will later be replaced and can be ignored for now. Warnings of note include: 
+[WARNING CODE25 + EVENTS_TSV_MISSING]: 251
