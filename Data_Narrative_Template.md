@@ -105,4 +105,4 @@ Upon [second](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation2/G
 
 [ERROR CODE1 + Naming Issue]: 311
 However, these errors are due to ASL files which will later be replaced and can be ignored for now. Warnings of note include: 
-[WARNING CODE25 + EVENTS_TSV_MISSING]: 251
+[WARNING CODE25 + EVENTS_TSV_MISSING]: 251, chosen to ignore at this point and consider adding the tsvs later
