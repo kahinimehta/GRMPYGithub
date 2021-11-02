@@ -2,7 +2,7 @@
 
 ### Important Links (should all be on GitHub):
 * Data Processing Flow Diagram:
-Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect
+Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel. 
 
 
 * DSR GitHub Project Page(Curation/Validation and Processing Queue Status):
@@ -55,9 +55,10 @@ Kahini Mehta
 [https://github.com/kahinimehta/GRMPYGithub](https://github.com/kahinimehta/GRMPYGithub)
 * GitHub Link to final CuBIDS csvs: 
 * Describe the Curation Process. Include a list of the initial and final validation errors and warnings.
-Began with Flywheel and fw-heudiconv for curating into BIDS format & deleted duplicate NIFTIs + removed unnecessary BIDS data for attachments. Checked into Datalad after removing PHI. Looked at summary.csv to remove faulty IntendedFor (eg: sub 99949 had an IntendedFor in their dwi)
+Began with Flywheel and fw-heudiconv for curating into BIDS format & deleted duplicate NIFTIs + removed unnecessary BIDS data for attachments. Checked into Datalad after removing PHI. Looked at summary.csv to remove faulty IntendedFor (eg: sub 99949 had an IntendedFor in their dwi) and re-curate subjects with unused fmaps on flywheel and manually fix on cubic.
 * Describe additions, deletions, and metadata changes (if any).
-Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](https://pennlinc.github.io/docs/TheWay/CuratingBIDSonDisk/). Metadata fields removed include patient sex,name, acquisition datetime & weight. Looked at summary.csv to remove faulty IntendedFor (eg: sub 99949 had an IntendedFor in their dwi)
+Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](https://pennlinc.github.io/docs/TheWay/CuratingBIDSonDisk/). Metadata fields removed include patient sex,name, acquisition datetime & weight. Looked at summary.csv to remove faulty IntendedFor (eg: sub 99949 had an IntendedFor in their dwi) and re-curate subjects with unused fmaps in Flywheel and manually fix on cubics. 
+
 ### Preprocessing Pipelines 
 * For each pipeline (e.g. QSIPrep, fMRIPrep, XCP, C-PAC), please fill out the following information:
    * Pipeline Name: fMRIPrep
