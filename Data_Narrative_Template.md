@@ -2,7 +2,7 @@
 
 ### Important Links (should all be on GitHub):
 * Data Processing Flow Diagram:
-Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel. 
+Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manuall on CUBIC.  
 
 
 * DSR GitHub Project Page(Curation/Validation and Processing Queue Status):
@@ -107,4 +107,6 @@ Upon [second](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation2/G
 [ERROR CODE1 + Naming Issue]: 311
 However, these errors are due to ASL files which will later be replaced and can be ignored for now. Warnings of note include: 
 [WARNING CODE25 + EVENTS_TSV_MISSING]: 251, chosen to ignore at this point and consider adding the tsvs later
-After looking at the summary sheet, worked to fix faulty IntendedFors and other errors regarding unused FieldMaps. 
+After looking at the summary sheet, worked to fix faulty IntendedFors and other errors regarding unused FieldMaps. Satisfied with validation results, proceeded to optimization. 
+
+Upon [third](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation3/GRMPY-validation.csv) run of the group, we found some unused fieldmaps to be fixed: fixed these by editing paths manually on cubic, re-running group. 
