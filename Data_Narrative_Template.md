@@ -2,12 +2,8 @@
 
 ### Important Links (should all be on GitHub):
 * Data Processing Flow Diagram:
-Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manuall on CUBIC.  
+Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manuall on CUBIC --> tried to get rid of scans that were under 3 mins for BOLD, and to get rid of ASL data so we could replace it. 
 
-
-* DSR GitHub Project Page(Curation/Validation and Processing Queue Status):
-   * Cards for tracking the curation and validation portion of the dataset. This page should be updated every time you perform an action on the data. 
-   * Cards for tracking the progress of containerized pipeline runs on the data. 
    
 ### Plan for the Data 
 
@@ -25,9 +21,9 @@ Analysis of GRMPY data.
 * Who is responsible for acquiring this data?
  Acquired previously. 
 * Do you have a DUA? Who is allowed to access the data?
-
+-
 * Where was the data acquired? 
-Acquired from FlyWheel, collected previously as [specified](https://pennlinc.github.io/grmpyproject/)
+SC3T, HUP6... Acquired from FlyWheel, collected previously as [specified](https://pennlinc.github.io/grmpyproject/)
 * Describe the data. What type of information do we have? Things to specify include:
    - number of subjects: 231
    - types of images: func, perf, anat, dwi
@@ -55,9 +51,9 @@ Kahini Mehta
 [https://github.com/kahinimehta/GRMPYGithub](https://github.com/kahinimehta/GRMPYGithub)
 * GitHub Link to final CuBIDS csvs: 
 * Describe the Curation Process. Include a list of the initial and final validation errors and warnings.
-Began with Flywheel and fw-heudiconv for curating into BIDS format & deleted duplicate NIFTIs + removed unnecessary BIDS data for attachments. Checked into Datalad after removing PHI. Looked at summary.csv to remove faulty IntendedFor (eg: sub 99949 had an IntendedFor in their dwi) and re-curate subjects with unused fmaps on flywheel and manually fix on cubic.
+Began with Flywheel and fw-heudiconv for curating into BIDS format & deleted duplicate NIFTIs + removed unnecessary BIDS data for attachments. Checked into Datalad after removing PHI. Looked at summary.csv to remove faulty IntendedFor (eg: sub 99949 had an IntendedFor in their dwi) and re-curate subjects with unused fmaps on flywheel and manually fix on cubic. Any ppts with BOLD data under 3 mins had those removed, ASL data was removed to be replaced later. 
 * Describe additions, deletions, and metadata changes (if any).
-Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](https://pennlinc.github.io/docs/TheWay/CuratingBIDSonDisk/). Metadata fields removed include patient sex,name, acquisition datetime & weight. Looked at summary.csv to remove faulty IntendedFor (eg: sub 99949 had an IntendedFor in their dwi) and re-curate subjects with unused fmaps in Flywheel and manually fix on cubics. 
+Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](https://pennlinc.github.io/docs/TheWay/CuratingBIDSonDisk/). Metadata fields removed include patient sex, acquisition datetime & weight. Looked at summary.csv to remove faulty IntendedFor (eg: sub 99949 had an IntendedFor in their dwi) and re-curate subjects with unused fmaps in Flywheel and manually fix on cubics. 
 
 ### Preprocessing Pipelines 
 * For each pipeline (e.g. QSIPrep, fMRIPrep, XCP, C-PAC), please fill out the following information:
@@ -86,7 +82,7 @@ Kahini Mehta, GRMPY project
    * Where it was performed (CUBIC, PMACS, somewhere else)?
    CUBIC
    * GitHub Link(s) to result(s)
-   * Did you use pennlinckit?  
+   * Did you use pennlinckit?  Not yet.
       * https://github.com/ennLINC/PennLINC-Kit/tree/main/pennlinckit  
 
 
@@ -116,3 +112,5 @@ Upon [fourth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation4) 
 Upon [fifth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation5/GRMPY-validation.csv) run of the group, we fixed most of the errors - still some typos in some IntendedFors in the fmaps, fixed those after looking at summary sheet. 
 
 Upon [sixth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation6/GRMPY-validation.csv) run of the group, one last IntendedFor to fix.  
+
+Upon [seventh](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation6/GRMPY-validation.csv) run of the group, we were satisfied. 
