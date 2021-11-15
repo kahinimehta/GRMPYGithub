@@ -113,4 +113,6 @@ Upon [third](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation3) r
 
 Upon [fourth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation4) run of the group, we fixed most of the errors, but made some changes where the IntendedFors of certain files had some errors. 
 
-Upon [fifth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation5/GRMPY-validation.csv) run of the group, we fixed most of the errors, but made some changes. 
+Upon [fifth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation5/GRMPY-validation.csv) run of the group, we fixed most of the errors - still some typos in some IntendedFors in the fmaps, fixed those after looking at summary sheet. 
+
+Upon [sixth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation6/GRMPY-validation.csv) run of the group, one last IntendedFor to fix.  
