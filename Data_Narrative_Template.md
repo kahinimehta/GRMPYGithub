@@ -2,7 +2,7 @@
 
 ### Important Links (should all be on GitHub):
 * Data Processing Flow Diagram:
-Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manually on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json)--> removed ASL data by merging into 0 in summary csv and renaming all columns when applying CuBIDS--> however, the use-datalad flag was not working. Reverted to prior state and ran cubids-apply again without that flag -->  removed participants with BOLD scans under 3 mins, variant num of volumes for DWI
+Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manually on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json)--> removed ASL data by merging into 0 in summary csv and renaming all columns when applying CuBIDS--> however, the use-datalad flag was not working. Reverted to prior state and ran cubids-apply again without that flag. Was successful. -->  removed participants with BOLD scans under 3 mins, variant num of volumes for DWI
 
 
    
