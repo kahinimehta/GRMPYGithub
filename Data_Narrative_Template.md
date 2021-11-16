@@ -2,7 +2,7 @@
 
 ### Important Links (should all be on GitHub):
 * Data Processing Flow Diagram:
-Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manually on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json)--> removed ASL data by merging into 0 in summary csv and renaming all columns when applying CuBIDS--> removed participants with BOLD scans under 3 mins, variant num of volumes for DWI
+Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manually on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json)--> removed ASL data by merging into 0 in summary csv and renaming all columns when applying CuBIDS--> however, the use-datalad flag was not working. Reverted to prior state and ran cubids-apply again without that flag -->  removed participants with BOLD scans under 3 mins, variant num of volumes for DWI
 
 
    
@@ -54,7 +54,7 @@ Kahini Mehta
 * Describe the Curation Process. Include a list of the initial and final validation errors and warnings.
 See data processing flow diagram and BIDS validation list. 
 * Describe additions, deletions, and metadata changes (if any).
-Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](https://pennlinc.github.io/docs/TheWay/CuratingBIDSonDisk/). Metadata fields removed include patient sex, acquisition datetime & weight. Looked at summary.csv to remove faulty IntendedFor (eg: sub 99949 had an IntendedFor in their dwi) and re-curate subjects with unused fmaps in Flywheel and manually fix on cubics. 
+Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](https://pennlinc.github.io/docs/TheWay/CuratingBIDSonDisk/). Metadata fields removed include patient sex, acquisition datetime & weight. Looked at summary.csv to remove faulty IntendedFor (eg: sub 99949 had an IntendedFor in their dwi) and re-curate subjects with unused fmaps in Flywheel and manually fix on cubics by making sure all fieldmaps had the same values in IntendedFor. 
 
 ### Preprocessing Pipelines 
 * For each pipeline (e.g. QSIPrep, fMRIPrep, XCP, C-PAC), please fill out the following information:
@@ -116,6 +116,10 @@ Upon [sixth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation6/GR
 
 Upon [seventh](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation7/GRMPY-validation.csv) run of the group, we were satisfied. 
 
-Performed [eights](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation8/GRMPY-validation.csv) run of the group after deleting extra session. Fixed issues: 
+Performed [eighth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation8/GRMPY-validation.csv) run of the group after deleting extra session. Fixed issues of concern. 
 
 Performed [ninth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation9/GRMPY-validation.csv) run of the group after deleting ASL data via CuBIDS apply. 
+
+Due to error in applying cubids changes, [tenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation10/GRMPY-validation.csv) run of the group after cubids-undo. However, still some errors. Used git hard --resest to revert to initial state, ran validation again. 
+
+Performed [eleventh](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation11/GRMPY-validation.csv) run of the group after reverting back; same results as run 8. 
