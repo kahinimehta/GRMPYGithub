@@ -2,7 +2,8 @@
 
 ### Important Links (should all be on GitHub):
 * Data Processing Flow Diagram:
-Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manuall on CUBIC --> tried to get rid of scans that were under 3 mins for BOLD, and to get rid of ASL data so we could replace it. 
+Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manually on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json)--> removed ASL data by merging into 0 in summary csv--> removed participants with BOLD scans under 3 mins, variant num of volumes for DWI
+
 
    
 ### Plan for the Data 
@@ -51,7 +52,7 @@ Kahini Mehta
 [https://github.com/kahinimehta/GRMPYGithub](https://github.com/kahinimehta/GRMPYGithub)
 * GitHub Link to final CuBIDS csvs: 
 * Describe the Curation Process. Include a list of the initial and final validation errors and warnings.
-Began with Flywheel and fw-heudiconv for curating into BIDS format & deleted duplicate NIFTIs + removed unnecessary BIDS data for attachments. Checked into Datalad after removing PHI. Looked at summary.csv to remove faulty IntendedFor (eg: sub 99949 had an IntendedFor in their dwi) and re-curate subjects with unused fmaps on flywheel and manually fix on cubic. Any ppts with BOLD data under 3 mins had those removed, ASL data was removed to be replaced later. 
+Began with Flywheel and fw-heudiconv for curating into BIDS format & deleted duplicate NIFTIs + removed unnecessary BIDS data for attachments. Checked into Datalad after removing PHI. Looked at summary.csv to remove faulty IntendedFor (eg: sub 99949 had an IntendedFor in their dwi) and re-curate subjects with unused fmaps on flywheel and manually fix on cubic. Any ppts with BOLD data under 3 mins had those removed as well as an odd numvolumes for DWI, and participants with extra sessions had info removed for the incomplete/imperfect sessions on flywheel and CUBIC, ASL data was removed to be replaced later. 
 * Describe additions, deletions, and metadata changes (if any).
 Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](https://pennlinc.github.io/docs/TheWay/CuratingBIDSonDisk/). Metadata fields removed include patient sex, acquisition datetime & weight. Looked at summary.csv to remove faulty IntendedFor (eg: sub 99949 had an IntendedFor in their dwi) and re-curate subjects with unused fmaps in Flywheel and manually fix on cubics. 
 
@@ -113,4 +114,8 @@ Upon [fifth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation5/GR
 
 Upon [sixth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation6/GRMPY-validation.csv) run of the group, one last IntendedFor to fix.  
 
-Upon [seventh](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation6/GRMPY-validation.csv) run of the group, we were satisfied. 
+Upon [seventh](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation7/GRMPY-validation.csv) run of the group, we were satisfied. 
+
+Performed [eights](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation8/GRMPY-validation.csv) run of the group after deleting extra session. Fixed issues: 
+
+Performed [ninth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation9/GRMPY-validation.csv) run of the group after deleting ASL data via CuBIDS apply. 
