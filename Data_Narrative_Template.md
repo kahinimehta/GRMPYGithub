@@ -2,7 +2,7 @@
 
 ### Important Links (should all be on GitHub):
 * Data Processing Flow Diagram:
-Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manually on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json)--> removed ASL data by merging into 0 in summary csv and renaming all columns when applying CuBIDS--> however, the use-datalad flag was not working. Reverted to prior state and ran cubids-apply again without that flag. Was successful. -->  removed participants with BOLD scans under 3 mins, variant num of volumes for DWI
+Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manually on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json)--> removed ASL data by merging into 0 in summary csv and renaming all columns when applying CuBIDS--> however, the use-datalad flag was not working. Reverted to prior state and ran cubids-apply again without that flag. Was successful. -->  removed participants with BOLD scans under 3 mins, variant num of volumes for DWI --> added ASL in 
 
 
    
@@ -123,3 +123,9 @@ Performed [ninth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validatio
 Due to error in applying cubids changes, [tenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation10/GRMPY-validation.csv) run of the group after cubids-undo. However, still some errors. Used git hard --resest to revert to initial state, ran validation again. 
 
 Performed [eleventh](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation11/GRMPY-validation.csv) run of the group after reverting back; same results as run 8. 
+
+Performed [twelfth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation12/GRMPY-validation.csv) run of the group after cubids-apply renaming variants and deleting ASL- seems to have worked well, apart from one variant yet to be renamed. 
+
+Performed [thirteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation13/GRMPY-validation.csv) run of the group after cubids-apply renaming 1 variant and removing variants with BOLD data under 3 minutes, and 1 dwi variant with an odd number of volumes. 
+
+Performed [fourteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation14/GRMPY-validation.csv) run of the group after adding ASL data. 
