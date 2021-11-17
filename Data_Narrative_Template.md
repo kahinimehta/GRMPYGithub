@@ -126,6 +126,6 @@ Performed [eleventh](https://github.com/kahinimehta/GRMPYGithub/blob/main/Valida
 
 Performed [twelfth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation12/GRMPY-validation.csv) run of the group after cubids-apply renaming variants and deleting ASL- seems to have worked well, apart from one variant yet to be renamed. 
 
-Performed [thirteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation13/GRMPY-validation.csv) run of the group after cubids-apply renaming 1 variant and removing variants with BOLD data under 3 minutes, and 1 dwi variant with an odd number of volumes. 
+Performed [thirteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation13/GRMPY-validation.csv) run of the group after cubids-apply removing variants with BOLD data under 3 minutes, and 1 dwi variant with an odd number of volumes. 
 
 Performed [fourteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation14/GRMPY-validation.csv) run of the group after adding ASL data. 
