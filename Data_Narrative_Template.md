@@ -44,6 +44,7 @@ Yes. After adding metadata and removing sensitive fields.
 * Is the data backed up in a second location? If so, please provide the path to the backup location:
 CUBIC: /cbica/projects/GRMPY/project/backup
 and data before ASL is added in is in /cbica/projects/GRMPY/project/curation/backup_without_asl
+data after ASL was added in before editing sidecars: /cbica/projects/GRMPY/project/curation/backup_with_asl
 
 ### Curation Process
 
@@ -131,4 +132,4 @@ Performed [thirteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Vali
 
 Performed [fourteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation14/GRMPY-validation.csv) run of the group after adding ASL data. Removed ReconstructionMethod from .json after validate/group wouldn't run on the data
 
-Performed [fifteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation15/GRMPY-validation.csv) run of the group. 
+Performed [fifteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation15/GRMPY-validation.csv) run of the group. Found repetition time preparation missing as well as some repetition time variants. 
