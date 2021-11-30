@@ -42,7 +42,8 @@ NIFTIs- BIDS format from Flywheel
 * Are you using Datalad? If so, at which point did you check the data into datalad?
 Yes. After adding metadata and removing sensitive fields. 
 * Is the data backed up in a second location? If so, please provide the path to the backup location:
-CUBIC: /cbica/projects/GRMPY/backup
+CUBIC: /cbica/projects/GRMPY/project/backup
+and data before ASL is added in is in /cbica/projects/GRMPY/project/curation/backup_without_asl
 
 ### Curation Process
 
