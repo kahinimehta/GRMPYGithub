@@ -136,4 +136,6 @@ Performed [fifteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Valid
 
 Performed [sixteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation16/GRMPY-validation.csv) run of the group. Ran add-nifti-info to see if it would fix some of the errors. 
 
-Performed [seventeenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation17/GRMPY-validation.csv) run of the group. 
+Performed [seventeenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation17/GRMPY-validation.csv) run of the group. Saw some m0scans with 0 numvolums, removed their perf data. Missing metadata problem persisted. 
+
+Performed [eighteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation18/GRMPY-validation.csv) run of the group. 
