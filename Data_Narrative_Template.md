@@ -44,7 +44,7 @@ Yes. After adding metadata and removing sensitive fields.
 * Is the data backed up in a second location? If so, please provide the path to the backup location:
 CUBIC: /cbica/projects/GRMPY/project/backup
 and data before ASL is added in is in /cbica/projects/GRMPY/project/curation/backup_without_asl
-data after ASL was added in before editing sidecars: /cbica/projects/GRMPY/project/curation/backup_with_asl
+data after ASL was added in before editing sidecars and other asl data/ perf directories: /cbica/projects/GRMPY/project/curation/backup_with_asl
 
 ### Curation Process
 
