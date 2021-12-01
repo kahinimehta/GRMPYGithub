@@ -134,4 +134,6 @@ Performed [fourteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Vali
 
 Performed [fifteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation15/GRMPY-validation.csv) run of the group. Found repetition time preparation missing as well as some repetition time variants. Some other metadata missing, some niftis too small, and some participants missing niftis for asl data despite jsons being present. Removed those participants' perf data. 
 
-Performed [sixteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation16/GRMPY-validation.csv) run of the group. 
+Performed [sixteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation16/GRMPY-validation.csv) run of the group. Ran add-nifti-info to see if it would fix some of the errors. 
+
+Performed [seventeenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation17/GRMPY-validation.csv) run of the group. 
