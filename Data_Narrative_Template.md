@@ -2,7 +2,7 @@
 
 ### Important Links (should all be on GitHub):
 * Data Processing Flow Diagram:
-Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manually on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json)--> removed ASL data by merging into 0 in summary csv and renaming all columns when applying CuBIDS--> however, the use-datalad flag was not working. Reverted to prior state and ran cubids-apply again without that flag. Was successful. -->  removed participants with BOLD scans under 3 mins, variant num of volumes for DWI --> added ASL in --> removed ReconstructionMethod from .json after validate/group wouldn't run on the data
+Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manually on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json)--> removed ASL data by merging into 0 in summary csv and renaming all columns when applying CuBIDS--> however, the use-datalad flag was not working. Reverted to prior state and ran cubids-apply again without that flag. Was successful. -->  removed participants with BOLD scans under 3 mins, variant num of volumes for DWI --> added ASL in --> removed ReconstructionMethod from .json after validate/group wouldn't run on the data --> removed perf data for participants who had .json without niftis
 
 
    
@@ -132,4 +132,6 @@ Performed [thirteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Vali
 
 Performed [fourteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation14/GRMPY-validation.csv) run of the group after adding ASL data. Removed ReconstructionMethod from .json after validate/group wouldn't run on the data
 
-Performed [fifteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation15/GRMPY-validation.csv) run of the group. Found repetition time preparation missing as well as some repetition time variants. 
+Performed [fifteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation15/GRMPY-validation.csv) run of the group. Found repetition time preparation missing as well as some repetition time variants. Some other metadata missing, some niftis too small, and some participants missing niftis for asl data despite jsons being present. Removed those participants' perf data. 
+
+Performed [sixteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation16/GRMPY-validation.csv) run of the group. 
