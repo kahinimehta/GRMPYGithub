@@ -138,3 +138,5 @@ Performed [sixteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Valid
 Performed [seventeenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation17/GRMPY-validation.csv) run of the group. Saw some m0scans with 0 numvolums, removed their perf data. Missing metadata problem persisted. 
 
 Performed [eighteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation18/GRMPY-validation.csv) run of the group. Missing metadata persisted. Had to readd correct, complete ASL and restart process of validation for ASL. 
+
+Performed [nineteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation19/GRMPY-validation.csv) run of the group. Missing metadata persisted. Had to readd correct, complete ASL and restart process of validation for ASL. 
