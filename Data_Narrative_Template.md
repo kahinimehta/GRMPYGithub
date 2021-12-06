@@ -2,7 +2,7 @@
 
 ### Important Links (should all be on GitHub):
 * Data Processing Flow Diagram:
-Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manually on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json)--> removed ASL data by merging into 0 in summary csv and renaming all columns when applying CuBIDS--> however, the use-datalad flag was not working. Reverted to prior state and ran cubids-apply again without that flag. Was successful. -->  removed participants with BOLD scans under 3 mins, variant num of volumes for DWI --> added ASL in --> removed ReconstructionMethod from .json after validate/group wouldn't run on the data --> removed perf data for participants who had .json without niftis
+Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manually on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json)--> removed ASL data by merging into 0 in summary csv and renaming all columns when applying CuBIDS--> however, the use-datalad flag was not working. Reverted to prior state and ran cubids-apply again without that flag. Was successful. -->  removed participants with BOLD scans under 3 mins, variant num of volumes for DWI --> added ASL in --> removed ReconstructionMethod from .json after validate/group wouldn't run on the data --> removed perf data for participants who had .json without niftis --> missing metadata for ASL, had to delete and readd all complete ASL data after realising wrong ASL had been transferred. Restarted validation process. 
 
 
    
@@ -43,8 +43,7 @@ NIFTIs- BIDS format from Flywheel
 Yes. After adding metadata and removing sensitive fields. 
 * Is the data backed up in a second location? If so, please provide the path to the backup location:
 CUBIC: /cbica/projects/GRMPY/project/backup
-and data before ASL is added in is in /cbica/projects/GRMPY/project/curation/backup_without_asl
-data after ASL was added in before editing sidecars and other asl data/ perf directories: /cbica/projects/GRMPY/project/curation/backup_with_asl
+
 
 ### Curation Process
 
@@ -56,7 +55,7 @@ Kahini Mehta
 * Describe the Curation Process. Include a list of the initial and final validation errors and warnings.
 See data processing flow diagram and BIDS validation list. 
 * Describe additions, deletions, and metadata changes (if any).
-Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](https://pennlinc.github.io/docs/TheWay/CuratingBIDSonDisk/). Metadata fields removed include patient sex, acquisition datetime & weight. Looked at summary.csv to remove faulty IntendedFor (eg: sub 99949 had an IntendedFor in their dwi) and re-curate subjects with unused fmaps in Flywheel and manually fix on cubics by making sure all fieldmaps had the same values in IntendedFor. 
+Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](https://pennlinc.github.io/docs/TheWay/CuratingBIDSonDisk/). Metadata fields removed include patient sex, acquisition datetime & weight. Looked at summary.csv to remove faulty IntendedFor (eg: sub 99949 had an IntendedFor in their dwi) and re-curate subjects with unused fmaps in Flywheel and manually fix on cubics by making sure all fieldmaps had the same values in IntendedFor. For ASL data, see BIDS validation process.
 
 ### Preprocessing Pipelines 
 * For each pipeline (e.g. QSIPrep, fMRIPrep, XCP, C-PAC), please fill out the following information:
@@ -138,4 +137,4 @@ Performed [sixteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Valid
 
 Performed [seventeenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation17/GRMPY-validation.csv) run of the group. Saw some m0scans with 0 numvolums, removed their perf data. Missing metadata problem persisted. 
 
-Performed [eighteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation18/GRMPY-validation.csv) run of the group. Missing metadata persisted.
+Performed [eighteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation18/GRMPY-validation.csv) run of the group. Missing metadata persisted. Had to readd correct, complete ASL and restart process of validation for ASL. 
