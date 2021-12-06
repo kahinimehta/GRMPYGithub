@@ -139,4 +139,7 @@ Performed [seventeenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Val
 
 Performed [eighteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation18/GRMPY-validation.csv) run of the group. Missing metadata persisted. Had to readd correct, complete ASL and restart process of validation for ASL. 
 
-Performed [nineteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation19/GRMPY-validation.csv) run of the group. Missing metadata persisted. Had to readd correct, complete ASL and restart process of validation for ASL. 
+Performed [nineteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation19/GRMPY-validation.csv) run of the group. No errors of note. Some variants to consider in summary csv, plus RepetitionTimePreparation set to 0 instead of 4. Manually changed RTPrep. 
+
+Performed [twentieth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation20/GRMPY-validation.csv) run of the group.
+
