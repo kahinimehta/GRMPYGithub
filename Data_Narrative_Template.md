@@ -2,7 +2,7 @@
 
 ### Important Links (should all be on GitHub):
 * Data Processing Flow Diagram:
-Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manually on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json)--> removed ASL data by merging into 0 in summary csv and renaming all columns when applying CuBIDS--> however, the use-datalad flag was not working. Reverted to prior state and ran cubids-apply again without that flag. Was successful. -->  removed participants with BOLD scans under 3 mins, variant num of volumes for DWI --> added ASL in --> removed ReconstructionMethod from .json after validate/group wouldn't run on the data --> removed perf data for participants who had .json without niftis --> missing metadata for ASL, had to delete and readd all complete ASL data after realising wrong ASL had been transferred. Restarted validation process. 
+Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manually on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json)--> removed ASL data by merging into 0 in summary csv and renaming all columns when applying CuBIDS--> however, the use-datalad flag was not working. Reverted to prior state and ran cubids-apply again without that flag. Was successful. -->  removed participants with BOLD scans under 3 mins, variant num of volumes for DWI --> added ASL in --> removed ReconstructionMethod from .json after validate/group wouldn't run on the data --> removed perf data for participants who had .json without niftis --> missing metadata for ASL, had to delete and readd all complete ASL data after realising wrong ASL had been transferred. Restarted validation process. --> changed RT prep values from 0 to 4 --> changed values to match RT values
 
 
    
@@ -141,5 +141,6 @@ Performed [eighteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Vali
 
 Performed [nineteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation19/GRMPY-validation.csv) run of the group. No errors of note. Some variants to consider in summary csv, plus RepetitionTimePreparation set to 0 instead of 4. Manually changed RTPrep. 
 
-Performed [twentieth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation20/GRMPY-validation.csv) run of the group.
+Performed [twentieth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation20/GRMPY-validation.csv) run of the group, since I had to change RT Prep values. 
 
+Performed [twenty first](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation21/GRMPY-validation.csv) run of the group, since I had to change RT Prep values from 4 to match RT values.
