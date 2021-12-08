@@ -143,4 +143,6 @@ Performed [nineteenth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Vali
 
 Performed [twentieth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation20/GRMPY-validation.csv) run of the group, since I had to change RT Prep values. 
 
-Performed [twenty first](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation21/GRMPY-validation.csv) run of the group, since I had to change RT Prep values from 4 to match RT values.
+Performed [twenty first](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation21/GRMPY-validation.csv) run of the group, since I had to change RT Prep values from 4 to match RT values. Had to change RT tolerance for variants with RT differences of a small magnitude. 
+
+Performed [twenty second](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation22) run of the group - just grouping - since I had to change RT tolerance for variants with RT differences of a small magnitude. 
