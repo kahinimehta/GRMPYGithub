@@ -151,4 +151,4 @@ Performed [twenty third](https://github.com/kahinimehta/GRMPYGithub/blob/main/Va
 
 Performed [twenty fourth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation24) run of the group. Had to undo all changes - did cubids_undo, datalad save, and undo twice so could apply new version of cubids to asl data.
 
-Performed [twenty fifth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation25) run of the group. 
+Performed [twenty fifth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation25) run of the group. Reverted back to how things were at Validation22.
