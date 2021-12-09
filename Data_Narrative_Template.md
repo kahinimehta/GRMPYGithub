@@ -147,4 +147,6 @@ Performed [twenty first](https://github.com/kahinimehta/GRMPYGithub/blob/main/Va
 
 Performed [twenty second](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation22) run of the group - just grouping - since I had to change RT tolerance for variants with RT differences of a small magnitude. Had to run cubids-apply to rename variants and purge ASL scans with numvol less than 60.
 
-Performed [twenty third](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation23) run of the group. Some m0 type errors, variants all renamed. 
+Performed [twenty third](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation23) run of the group. Some m0 type errors, variants all renamed. M0 intended fors not changed, changed manually and reran. 
+
+Performed [twenty fourth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation24) run of the group.
