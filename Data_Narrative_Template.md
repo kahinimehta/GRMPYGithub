@@ -78,8 +78,8 @@ Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](ht
    CUBIC
    * Did you implement exemplar testing? If so, please fill out the information below:
       * Path to exemplar dataset: /cbica/projects/GRMPY/project/curation/testing/exemplars_dir (datalad tracked)
-      * Path to exemplar outputs: 
-      * Link to audit: 
+      * Path to exemplar outputs: just ran on all subjects
+      * Link to audit: https://pennlinc.github.io/grmpyproject/XCP_AUDIT.csv
 
 ### Post Processing 
 
