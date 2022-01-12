@@ -2,7 +2,7 @@
 
 ### Important Links (should all be on GitHub):
 * Data Processing Flow Diagram:
-Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manually on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json)--> removed ASL data by merging into 0 in summary csv and renaming all columns when applying CuBIDS--> however, the use-datalad flag was not working. Reverted to prior state and ran cubids-apply again without that flag. Was successful. -->  removed participants with BOLD scans under 3 mins, variant num of volumes for DWI --> added ASL in --> removed ReconstructionMethod from .json after validate/group wouldn't run on the data --> removed perf data for participants who had .json without niftis --> missing metadata for ASL, had to delete and readd all complete ASL data after realising wrong ASL had been transferred. Restarted validation process. --> changed RT prep values from 0 to 4 --> changed values to match RT values --> changed tolerance values for ASL RT in grouping --> Had to run cubids-apply to rename variants and purge ASL scans with numvol less than 60. --> undid changes as cubids needed to be updated first --> Could not rename ASL variants due to CuBIDS/BIDS issues, decided simply to purge shorter scans via cubids-apply and not rename any variants and then validate again --> started setting up preprocessing for exemplars --> after one ran successfully, ran fmriprep on all --> began to implement XCP pipeline
+Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manually on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json)--> removed ASL data by merging into 0 in summary csv and renaming all columns when applying CuBIDS--> however, the use-datalad flag was not working. Reverted to prior state and ran cubids-apply again without that flag. Was successful. -->  removed participants with BOLD scans under 3 mins, variant num of volumes for DWI --> added ASL in --> removed ReconstructionMethod from .json after validate/group wouldn't run on the data --> removed perf data for participants who had .json without niftis --> missing metadata for ASL, had to delete and readd all complete ASL data after realising wrong ASL had been transferred. Restarted validation process. --> changed RT prep values from 0 to 4 --> changed values to match RT values --> changed tolerance values for ASL RT in grouping --> Had to run cubids-apply to rename variants and purge ASL scans with numvol less than 60. --> undid changes as cubids needed to be updated first --> Could not rename ASL variants due to CuBIDS/BIDS issues, decided simply to purge shorter scans via cubids-apply and not rename any variants and then validate again --> started setting up preprocessing for exemplars --> after one ran successfully, ran fmriprep on all and audited, 1 subject not successful (106071) due to no T1--> began to implement XCP pipeline --> ran on all, reran some subjects who quit halfway through with no explanation --> audited, all 230 successful
 
 
    
@@ -14,7 +14,7 @@ Analysis of GRMPY data.
 [GRMPY](https://pennlinc.github.io/grmpyproject/)
 * What is our goal data format?
    * i.e. in what form do we want the data by the end of the "Curation" step? BIDS? Something else? 
-   In BIDS format, then fMRIPrep processed
+   In BIDS format, then fMRIPrep processed, then XCP processed
 
 
 ### Data Acquisition
@@ -50,7 +50,7 @@ CUBIC: /cbica/projects/GRMPY/project/backup
 * Who is responsible for curating this data?
 Kahini Mehta
 * GitHub Link to curation scripts/heuristics: 
-[https://github.com/PennLINC/Flywheel_Curation/tree/master/Projects/GRMPY_822831](https://github.com/PennLINC/Flywheel_Curation/tree/master/Projects/GRMPY_822831); see heuristic version 4
+[https://github.com/PennLINC/Flywheel_Curation/tree/master/Projects/GRMPY_822831](https://github.com/PennLINC/Flywheel_Curation/tree/master/Projects/GRMPY_822831); see heuristic version 4  + pull request for version 5
 * GitHub Link to final CuBIDS csvs: [https://github.com/kahinimehta/GRMPYGithub](https://github.com/kahinimehta/GRMPYGithub)
 * Describe the Curation Process. Include a list of the initial and final validation errors and warnings.
 See data processing flow diagram and BIDS validation list. 
@@ -68,7 +68,8 @@ Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](ht
       * Path to exemplar dataset: /cbica/projects/GRMPY/project/curation/testing/exemplars_dir (datalad tracked)
       * Path to exemplar outputs: eventually just ran on all participants after one exemplar was successful
       * 231 subjects ran. Acc to grep: 230 successful, 1 failed (106071) due to no T1  
-      * Link to audit: https://pennlinc.github.io/grmpyproject/FMRIPREP_AUDIT.csv
+      * Link to audit: https://github.com/kahinimehta/GRMPYGithub/blob/main/FMRIPREP_AUDIT.csv
+      * Outputs: /cbica/projects/GRMPY/project/curation/testing/fmriprep_outputs
 
    * For each pipeline (e.g. QSIPrep, fMRIPrep, XCP, C-PAC), please fill out the following information:
    * Pipeline Name: XCP
@@ -79,7 +80,8 @@ Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](ht
    * Did you implement exemplar testing? If so, please fill out the information below:
       * Path to exemplar dataset: /cbica/projects/GRMPY/project/curation/testing/exemplars_dir (datalad tracked)
       * Path to exemplar outputs: just ran on all subjects
-      * Link to audit: https://pennlinc.github.io/grmpyproject/XCP_AUDIT.csv
+      * Link to audit: https://github.com/kahinimehta/GRMPYGithub/blob/main/XCP_AUDIT.csv
+      * Outputs: /cbica/projects/GRMPY/project/curation/testing/xcp_outputs
 
 ### Post Processing 
 
