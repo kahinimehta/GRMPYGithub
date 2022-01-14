@@ -1,103 +1,7 @@
-## Data Narrative for GRMPY
+## Data Narrative for GRMPY (based off RBC template, but modified)
 
-### Important Links (should all be on GitHub):
-* Data Processing Flow Diagram:
-Manually deleted NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors, took care of fieldmaps that were incorrect by fixing the heuristic and recreating on flywheel and then fixing manually on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json)--> removed ASL data by merging into 0 in summary csv and renaming all columns when applying CuBIDS--> however, the use-datalad flag was not working. Reverted to prior state and ran cubids-apply again without that flag. Was successful. -->  removed participants with BOLD scans under 3 mins, variant num of volumes for DWI --> added ASL in --> removed ReconstructionMethod from .json after validate/group wouldn't run on the data --> removed perf data for participants who had .json without niftis --> missing metadata for ASL, had to delete and readd all complete ASL data after realising wrong ASL had been transferred. Restarted validation process. --> changed RT prep values from 0 to 4 --> changed values to match RT values --> changed tolerance values for ASL RT in grouping --> Had to run cubids-apply to rename variants and purge ASL scans with numvol less than 60. --> undid changes as cubids needed to be updated first --> Could not rename ASL variants due to CuBIDS/BIDS issues, decided simply to purge shorter scans via cubids-apply and not rename any variants and then validate again --> started setting up preprocessing for exemplars --> after one ran successfully, ran fmriprep on all and audited, 1 subject not successful (106071) due to no T1--> began to implement XCP pipeline --> ran on all, reran some subjects who quit halfway through with no explanation --> audited, all 230 successful
-
-
-   
-### Plan for the Data 
-
-* Why does PennLINC need this data?
-Analysis of GRMPY data. 
-* For which project(s) is it intended? Please link to project pages below:
-[GRMPY](https://pennlinc.github.io/grmpyproject/)
-* What is our goal data format?
-   * i.e. in what form do we want the data by the end of the "Curation" step? BIDS? Something else? 
-   In BIDS format, then fMRIPrep processed, then XCP processed
-
-
-### Data Acquisition
-
-* Who is responsible for acquiring this data?
- Acquired previously. 
-* Do you have a DUA? Who is allowed to access the data?
--
-* Where was the data acquired? 
-SC3T, HUP6... Acquired from FlyWheel, collected previously as [specified](https://pennlinc.github.io/grmpyproject/)
-* Describe the data. What type of information do we have? Things to specify include:
-   - number of subjects: 231
-   - types of images: func, perf, anat, dwi
-
-### Download and Storage 
-
-* Who is responsible for downloading this data?
-Kahini Mehta
-* From where was the data downloaded?
-Flywheel
-* Where is it currently being stored?
-Flywheel, CUBIC, Datalad
-* What form is the data in upon intial download (DICOMS, NIFTIS, something else?)
-NIFTIs- BIDS format from Flywheel
-* Are you using Datalad? If so, at which point did you check the data into datalad?
-Yes. After adding metadata and removing sensitive fields. 
-* Is the data backed up in a second location? If so, please provide the path to the backup location:
-CUBIC: /cbica/projects/GRMPY/project/backup
-
-
-### Curation Process
-
-* Who is responsible for curating this data?
-Kahini Mehta
-* GitHub Link to curation scripts/heuristics: 
-[https://github.com/PennLINC/Flywheel_Curation/tree/master/Projects/GRMPY_822831](https://github.com/PennLINC/Flywheel_Curation/tree/master/Projects/GRMPY_822831); see heuristic version 4  + pull request for version 5
-* GitHub Link to final CuBIDS csvs: [https://github.com/kahinimehta/GRMPYGithub](https://github.com/kahinimehta/GRMPYGithub)
-* Describe the Curation Process. Include a list of the initial and final validation errors and warnings.
-See data processing flow diagram and BIDS validation list. 
-* Describe additions, deletions, and metadata changes (if any).
-Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](https://pennlinc.github.io/docs/TheWay/CuratingBIDSonDisk/). Metadata fields removed include patient sex, acquisition datetime & weight. Looked at summary.csv to remove faulty IntendedFor (eg: sub 99949 had an IntendedFor in their dwi) and re-curate subjects with unused fmaps in Flywheel and manually fix on cubics by making sure all fieldmaps had the same values in IntendedFor. For ASL data, see BIDS validation process.
-
-### Preprocessing Pipelines 
-* For each pipeline (e.g. QSIPrep, fMRIPrep, XCP, C-PAC), please fill out the following information:
-   * Pipeline Name: fMRIPrep
-   * Who is responsible for running preprocessing pipelines/audits on this data?
-   Kahini Mehta
-   * Where are you running these pipelines? CUBIC? PMACS? Somewhere else?
-   CUBIC
-   * Did you implement exemplar testing? If so, please fill out the information below:
-      * Path to exemplar dataset: /cbica/projects/GRMPY/project/curation/testing/exemplars_dir (datalad tracked)
-      * Path to exemplar outputs: eventually just ran on all participants after one exemplar was successful
-      * 231 subjects ran. Acc to grep: 230 successful, 1 failed (106071) due to no T1  
-      * Link to audit: https://github.com/kahinimehta/GRMPYGithub/blob/main/FMRIPREP_AUDIT.csv
-      * Outputs: /cbica/projects/GRMPY/project/curation/testing/fmriprep_outputs
-
-   * For each pipeline (e.g. QSIPrep, fMRIPrep, XCP, C-PAC), please fill out the following information:
-   * Pipeline Name: XCP
-   * Who is responsible for running preprocessing pipelines/audits on this data?
-   Kahini Mehta
-   * Where are you running these pipelines? CUBIC? PMACS? Somewhere else?
-   CUBIC
-   * Did you implement exemplar testing? If so, please fill out the information below:
-      * Path to exemplar dataset: /cbica/projects/GRMPY/project/curation/testing/exemplars_dir (datalad tracked)
-      * Path to exemplar outputs: just ran on all subjects
-      * Link to audit: https://github.com/kahinimehta/GRMPYGithub/blob/main/XCP_AUDIT.csv
-      * Outputs: /cbica/projects/GRMPY/project/curation/testing/xcp_outputs
-
-### Post Processing 
-
-* Who is using the data/for which projects are people in the lab using this data?
-Kahini Mehta, GRMPY project
-   * Link to project page(s) here: [https://pennlinc.github.io/grmpyproject/](https://pennlinc.github.io/grmpyproject/)
-* For each post-processing analysis that has been run on this data, fill out the following
-   * Who performed the analysis?
-   Kahini Mehta
-   * Where it was performed (CUBIC, PMACS, somewhere else)?
-   CUBIC
-   * GitHub Link(s) to result(s)
-   * Did you use pennlinckit?  Not yet.
-      * https://github.com/ennLINC/PennLINC-Kit/tree/main/pennlinckit  
-
-
+# General process
+Manually deleted duplicate NIFTIs --> ran BIDS validate on all data --> uploaded to CuBIDS --> added metadata fields --> removed PHI --> checked into datalad --> deleted faulty IntendedFors in fmaps, took care of fieldmaps that had incorrec IntendedFors by fixing the heuristic and recurating on flywheel, then fixing manually IntendedFors on CUBIC --> deleted extra sessions for participants on Flywheel and CUBIC (removed niftis/json for related scans)--> removed ASL data by merging into 0 in summary csv + renamied columns with recommended variant names when applying CuBIDS--> however, the use-datalad flag was not working. Reverted to prior state and ran cubids-apply again without that flag. Was successful. -->  removed participants with BOLD scans under 3 mins, abonrmally small variant num of volumes for DWI --> added ASL in from Azeez --> removed ReconstructionMethod manually from .json since validate/group wouldn't run on the ASL data --> removed perf data for participants who had .json without accompanying niftis --> missing metadata for ASL, had to delete and readd all complete ASL data after realising wrong ASL had been transferred. Restarted validation process. --> manually changed RT prep values in ASL data from 0 to 4 --> manually changed RT Prep values again  to match RT values --> changed tolerance values for ASL RT in grouping so that CuBIDS would not make more variant groups than necessary --> Had to run cubids-apply to rename ASL variants and purge ASL scans with numvol less than 60. --> undid changes as cubids needed to be updated first --> Could not rename ASL variants due to BIDS issues whereby M0 for ASL data had to be renamed the same way as the ASL scan, even though the variant name might not apply to the M0 scan --> decided simply to purge shorter scans (ASL numvol less than 60) via cubids-apply and not rename any variants and then validate again --> started setting up preprocessing for exemplars --> after one ran successfully, ran fmriprep on all 231 subjects and audited, 1 subject not successful (106071) due to no T1- -> began to implement XCP pipeline --> ran on all subjects, reran some subjects who quit halfway through with no explanation --> audited, all 230 successful via grep checks
 
 # BIDS Validation
 
@@ -164,3 +68,95 @@ Performed [twenty fourth](https://github.com/kahinimehta/GRMPYGithub/blob/main/V
 Performed [twenty fifth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation25) run of the group. Reverted back to how things were at Validation22. Could not rename ASL variants due to CuBIDS/BIDS issues, decided simply to purge shorter scans via cubids-apply and not rename any variants and then validate again. 
 
 Performed [twenty sixth](https://github.com/kahinimehta/GRMPYGithub/blob/main/Validation26) run of the group. Satisfied with results!
+   
+### Plan for the Data 
+
+* Why does PennLINC need this data?
+Analysis of GRMPY data. 
+* For which project(s) is it intended? Please link to project pages below:
+[GRMPY](https://pennlinc.github.io/grmpyproject/)
+* What is our goal data format?
+   * i.e. in what form do we want the data by the end of the "Curation" step? BIDS? Something else? 
+   In BIDS format
+
+
+### Data Acquisition
+
+* Who is responsible for acquiring this data?
+ Acquired previously. 
+* Do you have a DUA? Who is allowed to access the data?
+-
+* Where was the data acquired? 
+SC3T, HUP6. Acquired from FlyWheel, collected previously as [specified](https://pennlinc.github.io/grmpyproject/)
+* Describe the data. What type of information do we have? Things to specify include:
+   - number of subjects: 231 
+   - types of images: func, perf, anat, dwi
+
+### Download and Storage 
+
+* Who is responsible for downloading this data?
+Kahini Mehta
+* From where was the data downloaded?
+Flywheel
+* Where is it currently being stored?
+Flywheel, CUBIC, Datalad
+* What form is the data in upon intial download (DICOMS, NIFTIS, something else?)
+NIFTIs- BIDS format from Flywheel
+* Are you using Datalad? If so, at which point did you check the data into datalad?
+Yes. After adding metadata to .jsons and removing sensitive fields. 
+* Is the data backed up in a second location? If so, please provide the path to the backup location:
+CUBIC: /cbica/projects/GRMPY/project/backup
+
+
+### Curation Process
+
+* Who is responsible for curating this data?
+Kahini Mehta
+* GitHub Link to curation scripts/heuristics: 
+[https://github.com/PennLINC/Flywheel_Curation/tree/master/Projects/GRMPY_822831](https://github.com/PennLINC/Flywheel_Curation/tree/master/Projects/GRMPY_822831); see heuristic version 4  & pull request for version 5 that fixed BIDS errors in fmap IntendedFors
+* GitHub Link to final CuBIDS csvs: [https://github.com/kahinimehta/GRMPYGithub](https://github.com/kahinimehta/GRMPYGithub)
+* Describe the Curation Process. Include a list of the initial and final validation errors and warnings.
+See general process and BIDS validation list. 
+* Describe additions, deletions, and metadata changes (if any).
+Used cubids-add-nifti-info, cubids-remove-metadata-fields as described [here](https://pennlinc.github.io/docs/TheWay/CuratingBIDSonDisk/). Metadata fields removed include patient sex, acquisition datetime & weight. Looked at summary.csv to remove faulty IntendedFors as described in the General Process.
+
+### Preprocessing Pipelines 
+* For each pipeline (e.g. QSIPrep, fMRIPrep, XCP, C-PAC), please fill out the following information:
+   * Pipeline Name: fMRIPrep
+   * Who is responsible for running preprocessing pipelines/audits on this data?
+   Kahini Mehta
+   * Where are you running these pipelines? CUBIC? PMACS? Somewhere else?
+   CUBIC
+   * Did you implement exemplar testing? If so, please fill out the information below:
+      * Path to exemplar dataset: /cbica/projects/GRMPY/project/curation/testing/exemplars_dir (datalad tracked)
+      * Path to exemplar outputs: eventually just ran on all participants after one exemplar was successful
+      * 231 subjects ran. Acc to grep: 230 successful, 1 failed (106071) due to no T1  
+      * Link to audit: https://github.com/kahinimehta/GRMPYGithub/blob/main/FMRIPREP_AUDIT.csv
+      * Outputs: /cbica/projects/GRMPY/project/curation/testing/fmriprep_outputs
+
+   * For each pipeline (e.g. QSIPrep, fMRIPrep, XCP, C-PAC), please fill out the following information:
+   * Pipeline Name: XCP
+   * Who is responsible for running preprocessing pipelines/audits on this data?
+   Kahini Mehta
+   * Where are you running these pipelines? CUBIC? PMACS? Somewhere else?
+   CUBIC
+   * Did you implement exemplar testing? If so, please fill out the information below:
+      * Path to exemplar dataset: /cbica/projects/GRMPY/project/curation/testing/exemplars_dir (datalad tracked)
+      * Path to exemplar outputs: just ran on all subjects
+      * Link to audit: https://github.com/kahinimehta/GRMPYGithub/blob/main/XCP_AUDIT.csv
+      * Outputs: /cbica/projects/GRMPY/project/curation/testing/xcp_outputs
+
+### Post Processing 
+
+* Who is using the data/for which projects are people in the lab using this data?
+Kahini Mehta, GRMPY project
+   * Link to project page(s) here: [https://pennlinc.github.io/grmpyproject/](https://pennlinc.github.io/grmpyproject/)
+* For each post-processing analysis that has been run on this data, fill out the following
+   * Who performed the analysis?
+   Kahini Mehta
+   * Where it was performed (CUBIC, PMACS, somewhere else)?
+   CUBIC
+   * GitHub Link(s) to result(s)
+   * Did you use pennlinckit?  Not yet.
+      * https://github.com/ennLINC/PennLINC-Kit/tree/main/pennlinckit  
+
